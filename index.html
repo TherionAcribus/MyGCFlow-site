@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyGCFlow · vos trouvailles de géocaching en carte animée</title>
+  <meta name="description" content="MyGCFlow rejoue vos trouvailles de géocaching sur une carte, jour après jour, et enregistre l'animation en vidéo. Application Windows gratuite, en version alpha.">
+  <meta name="theme-color" content="#082747">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MyGCFlow">
+  <meta property="og:description" content="Vos trouvailles de géocaching, rejouées sur une carte et enregistrées en vidéo.">
+  <!-- og:image demande une URL absolue : l'ajouter quand le domaine du site sera connu,
+       avec assets/img/mygcflow-social-1280x640.png -->
+
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preload" href="assets/fonts/montserrat-600-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#" aria-label="MyGCFlow, retour en haut">
+        <img src="assets/img/mygcflow-logo-horizontal-fond-sombre.svg" alt="MyGCFlow" width="150" height="48">
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#principe">Principe</a>
+        <a href="#video">Vidéo</a>
+        <a href="#a-venir">À venir</a>
+        <a class="nav-github" href="https://github.com/TherionAcribus/MyGCFlow" aria-label="Code source sur GitHub">
+          <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+        <a class="btn btn-small" href="#telecharger">Télécharger</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <!-- Accroche -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <p class="badge"><span class="badge-dot" aria-hidden="true"></span>Version alpha · Windows</p>
+          <h1>Vos trouvailles de géocaching, rejouées sur une&nbsp;carte.</h1>
+          <p class="lead">
+            MyGCFlow lit votre Pocket Query «&nbsp;My&nbsp;Finds&nbsp;» et fait réapparaître vos caches
+            jour après jour, dans le style de carte de votre choix. Vous pouvez ensuite enregistrer
+            l'animation en vidéo.
+          </p>
+          <div class="actions">
+            <a class="btn" href="#telecharger">Télécharger pour Windows</a>
+            <a class="btn btn-ghost" href="https://github.com/TherionAcribus/MyGCFlow">Code source sur GitHub</a>
+          </div>
+          <p class="fineprint">Gratuit. Un petit projet personnel, encore en rodage.</p>
+        </div>
+
+        <figure class="replay">
+          <div class="replay-frame">
+            <canvas id="replay" aria-hidden="true"></canvas>
+            <div class="replay-overlay" aria-hidden="true">
+              <span class="replay-title">Mes trouvailles</span>
+              <span><strong id="replay-count">0</strong> caches</span>
+              <span id="replay-date" class="replay-date">&nbsp;</span>
+            </div>
+            <div class="replay-progress" aria-hidden="true"><span id="replay-bar"></span></div>
+          </div>
+          <figcaption>Illustration du principe, avec des caches fictives.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Principe -->
+    <section id="principe" class="section">
+      <div class="wrap">
+        <h2 class="reveal">Le principe</h2>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Chargez vos trouvailles</h3>
+            <p>
+              Exportez la Pocket Query «&nbsp;My&nbsp;Finds&nbsp;» depuis geocaching.com, puis chargez le
+              fichier <code>.gpx</code> ou <code>.zip</code>. Filtrez par type de cache, par période ou par pays.
+            </p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Composez la carte</h3>
+            <p>
+              Fond de carte, forme et couleur des points, effet d'apparition, titre et compteur.
+              Enregistrez vos réglages dans un profil pour les retrouver.
+            </p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Rejouez et enregistrez</h3>
+            <p>
+              Choisissez la période et le rythme, ajoutez une musique si vous le souhaitez, puis
+              enregistrez la vidéo.
+            </p>
+          </li>
+        </ol>
+        <p class="note reveal">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg>
+          <span>
+            Vos données restent sur votre ordinateur. L'application tourne en local et s'ouvre dans votre
+            navigateur&nbsp;; seules les tuiles du fond de carte viennent d'Internet.
+          </span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Vidéo -->
+    <section id="video" class="section section-alt">
+      <div class="wrap">
+        <h2 class="reveal">Le résultat</h2>
+        <p class="section-lead reveal">Une animation enregistrée avec MyGCFlow.</p>
+
+        <!-- Pour changer de vidéo, remplacer data-youtube-id. Pour en ajouter une,
+             dupliquer ce bloc <figure>. -->
+        <figure class="video reveal" data-youtube-id="Gqk3JlpNE18">
+          <button class="video-facade" type="button" aria-label="Lire la vidéo de démonstration (YouTube)">
+            <img src="assets/img/mygcflow-logo-horizontal-fond-sombre.svg" alt="" width="1280" height="640" loading="lazy">
+            <span class="video-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+          <figcaption>La vidéo se charge depuis YouTube au clic.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Alpha -->
+    <section id="alpha" class="section">
+      <div class="wrap narrow">
+        <h2 class="reveal">Un projet en version alpha</h2>
+        <p class="reveal">
+          MyGCFlow fonctionne, mais il est jeune&nbsp;: la version actuelle est la
+          <strong class="js-version">0.0.2</strong>. Attendez-vous à des bugs, à des réglages qui
+          changent d'une version à l'autre et à une interface encore en rodage.
+        </p>
+        <ul class="facts reveal">
+          <li>Windows uniquement pour l'instant.</li>
+          <li>
+            L'application n'est pas encore signée&nbsp;: au premier lancement, Windows SmartScreen affiche
+            un avertissement.
+          </li>
+          <li>
+            Les retours sont les bienvenus, via les
+            <a href="https://github.com/TherionAcribus/MyGCFlow/issues">tickets GitHub</a>.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feuille de route -->
+    <section id="a-venir" class="section section-alt">
+      <div class="wrap">
+        <h2 class="reveal">Ce qu'il reste à faire</h2>
+        <p class="section-lead reveal">Les prochains chantiers, sans date promise.</p>
+
+        <div class="roadmap">
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18M9 16l2 2 4-4"/></g></svg>
+            <h3>Dates des caches Challenge</h3>
+            <p>Mieux gérer les dates des caches Challenge, pour qu'elles apparaissent au bon moment dans l'animation.</p>
+          </article>
+
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></g></svg>
+            <h3>Images personnalisées</h3>
+            <p>Afficher vos propres images pendant l'animation.</p>
+          </article>
+
+          <article class="card card-wide reveal">
+            <div class="card-text">
+              <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></g></svg>
+              <h3>Matrices et statistiques en temps réel</h3>
+              <p>
+                Voir la matrice difficulté/terrain et d'autres statistiques se remplir au fil de
+                l'animation.
+              </p>
+              <p class="matrix-stat" aria-hidden="true"><strong id="matrix-filled">0</strong>&nbsp;/&nbsp;81 cases remplies</p>
+            </div>
+            <figure class="matrix-figure">
+              <div class="matrix" aria-hidden="true">
+                <span class="matrix-axis matrix-axis-y">Difficulté</span>
+                <span class="matrix-axis matrix-axis-x">Terrain</span>
+                <div class="matrix-grid" id="matrix"></div>
+              </div>
+              <figcaption>Maquette de l'idée&nbsp;: pas encore dans l'application.</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Téléchargement -->
+    <section id="telecharger" class="section download">
+      <div class="wrap narrow center">
+        <img class="download-icon reveal" src="assets/img/mygcflow-symbole.svg" alt="" width="88" height="88">
+        <h2 class="reveal">Télécharger MyGCFlow</h2>
+        <p class="reveal" id="release-info">
+          Dernière version&nbsp;: <strong class="js-version">0.0.2</strong>, pour Windows.
+        </p>
+        <div class="actions center reveal">
+          <a class="btn" id="dl-setup" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Installeur <span class="btn-meta" id="dl-setup-meta">.exe</span></a>
+          <a class="btn btn-ghost" id="dl-portable" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Version portable <span class="btn-meta" id="dl-portable-meta">.zip</span></a>
+        </div>
+        <p class="fineprint reveal">
+          Rien d'autre à installer&nbsp;: Python et ffmpeg sont inclus.
+          Au premier lancement, cliquez sur «&nbsp;Informations complémentaires&nbsp;», puis
+          «&nbsp;Exécuter quand même&nbsp;».
+          <br>
+          <a href="https://github.com/TherionAcribus/MyGCFlow/releases">Notes de version et anciennes versions</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <img src="assets/img/mygcflow-logo-horizontal-fond-sombre.svg" alt="MyGCFlow" width="125" height="40">
+      <p>
+        <a href="https://github.com/TherionAcribus/MyGCFlow">GitHub</a>
+        · <a href="https://github.com/TherionAcribus/MyGCFlow/issues">Signaler un problème</a>
+      </p>
+      <p class="footer-legal">
+        MyGCFlow n'est pas affilié à Groundspeak / Geocaching.com.
+        Police Montserrat sous <a href="assets/fonts/Montserrat-OFL.txt">licence SIL OFL</a>.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -27,6 +27,15 @@ l'app se fait dans son propre dépôt, avec ses propres commits.
   dans `sources/`.
 - Visuel de partage social : `png/mygcflow-social-1280x640.png`.
 
+## Le site
+
+Statique, sans build ni dépendance : `index.html`, `assets/css/style.css`,
+`assets/js/main.js`. Organisation et points de modification dans `README.md`.
+
+Ton : humble. L'app est en alpha ; ne rien annoncer qu'elle ne fait pas, et
+présenter la feuille de route sans date. Les animations respectent
+`prefers-reduced-motion`.
+
 ## Langue
 
 Le contenu, les commits et les commentaires sont en français.
