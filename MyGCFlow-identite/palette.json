@@ -1,0 +1,16 @@
+{
+  "name": "MyGCFlow — Carte vivante",
+  "colors": {
+    "marine": "#082747",
+    "vert": "#29D34E",
+    "turquoise": "#00C5A1",
+    "bleu": "#009DFF",
+    "blanc": "#FFFFFF"
+  },
+  "typography": {
+    "family": "Montserrat",
+    "weight": 800,
+    "delivery": "Contours vectoriels dans les SVG finaux; source avec texte editable fournie."
+  },
+  "geocachingSymbol": "Tracé exact du fichier Geocaching.svg fourni. Transformation uniforme et couleur seulement."
+}

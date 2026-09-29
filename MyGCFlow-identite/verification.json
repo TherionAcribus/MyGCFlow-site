@@ -1,0 +1,24 @@
+{
+  "source_symbol_path_sha256": "61f463534fd026dbc158b210752787f7cf92936c94987163cf53407d421d9ba2",
+  "symbol_geometry": "Le chemin SVG d original est identique dans tous les SVG livres.",
+  "production_svg": "Vecteurs autonomes, texte converti en courbes, aucune image incorporee.",
+  "windows_ico_sizes": [
+    16,
+    20,
+    24,
+    32,
+    40,
+    48,
+    64,
+    96,
+    128,
+    256
+  ],
+  "favicon_ico_sizes": [
+    16,
+    32,
+    48
+  ],
+  "png": "Tous les PNG ouverts et verifies. Transparence verifiee sur le logo principal.",
+  "scope": "Verification des fichiers exportes; aucune execution ni modification de MyGCFlow."
+}
