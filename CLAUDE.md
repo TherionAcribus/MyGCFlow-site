@@ -32,6 +32,9 @@ l'app se fait dans son propre dépôt, avec ses propres commits.
 Statique, sans build ni dépendance : `index.html`, `assets/css/style.css`,
 `assets/js/main.js`. Organisation et points de modification dans `README.md`.
 
+Les captures et la vidéo d'accroche sont de vraies sorties de l'application, faites avec
+des données fictives : ne jamais y mettre de trouvailles réelles (méthode dans `README.md`).
+
 Ton : humble. L'app est en alpha ; ne rien annoncer qu'elle ne fait pas, et
 présenter la feuille de route sans date. Les animations respectent
 `prefers-reduced-motion`.
