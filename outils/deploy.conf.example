@@ -5,7 +5,7 @@
 # ou un domaine qui pointe directement sur l'hébergement.
 O2S_SSH="identifiantcpanel@nom-serveur.o2switch.net"
 
-# Dossier du site sur le serveur : le docroot du domaine, qui est un clone
-# du dépôt. public_html pour le domaine principal, ou le dossier d'un
-# domaine compagnon / sous-domaine (ex. mygcflow.fr).
+# Dossier du site sur le serveur : clone du dépôt servi en HTTP. Peut être le
+# docroot d'un domaine (public_html pour le domaine principal, dossier d'un
+# domaine compagnon) ou un sous-dossier (ex. public_html/app/GCMap).
 O2S_PATH="public_html"

@@ -66,10 +66,11 @@ Le site est servi depuis un clone du dépôt placé dans le docroot du domaine ;
 1. cPanel → **Autorisation SSH** : mettre son IP en liste blanche. La connexion
    utilise l'identifiant/mot de passe cPanel ; déposer une clé publique dans
    `~/.ssh/authorized_keys` sur l'hébergement évite de le retaper.
-2. Sur le serveur, peupler le docroot avec le dépôt :
+2. Sur le serveur, peupler le dossier servi avec le dépôt. Toutes les URLs du
+   site sont relatives : un sous-dossier du docroot fonctionne tel quel.
 
    ```bash
-   cd ~/public_html   # ou le dossier du domaine concerné
+   mkdir -p ~/public_html/app/GCMap && cd ~/public_html/app/GCMap
    git init
    git remote add origin https://github.com/TherionAcribus/MyGCFlow-site.git
    git fetch origin

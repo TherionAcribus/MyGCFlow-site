@@ -1,2 +1,5 @@
-# Le docroot est un clone git : ne pas exposer le dépôt ni les fichiers en .git*
+# Le dossier servi est un clone git : ne pas exposer le dépôt ni les fichiers
+# en .git*, ni les outils internes et le kit d'identité (non utilisés par la page).
 RedirectMatch 404 /\.git
+RedirectMatch 404 /outils/
+RedirectMatch 404 /MyGCFlow-identite/
