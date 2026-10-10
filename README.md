@@ -82,9 +82,13 @@ Le site est servi depuis un clone du dépôt placé dans le docroot du domaine ;
 3. Copier `outils/deploy.conf.example` en `outils/deploy.conf` (ignoré par git)
    et renseigner `O2S_SSH` et `O2S_PATH`.
 
-Ensuite, `bash outils/deploy.sh` (Git Bash) applique la dernière version poussée
-sur `main`. Le `.htaccess` du dépôt renvoie 404 sur `/.git*` : le clone dans le
-docroot n'est pas exposé.
+Ensuite, `outils\deploy.ps1` (PowerShell) ou `bash outils/deploy.sh` (Git Bash)
+applique la dernière version poussée sur `main` — le script se lance en local,
+c'est lui qui fait le SSH. Si PowerShell refuse d'exécuter le script :
+`powershell -ExecutionPolicy Bypass -File outils\deploy.ps1`.
+
+Le `.htaccess` du dépôt renvoie 404 sur `/.git*`, `/.claude`, `/outils/` et
+`/MyGCFlow-identite/` : le clone dans le dossier servi n'est pas exposé.
 
 ## À compléter à la mise en ligne
 
