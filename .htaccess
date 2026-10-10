@@ -1,0 +1,2 @@
+# Le docroot est un clone git : ne pas exposer le dépôt ni les fichiers en .git*
+RedirectMatch 404 /\.git

@@ -29,8 +29,10 @@ l'app se fait dans son propre dépôt, avec ses propres commits.
 
 ## Le site
 
-Statique, sans build ni dépendance : `index.html`, `assets/css/style.css`,
-`assets/js/main.js`. Organisation et points de modification dans `README.md`.
+Statique, sans build ni dépendance : `index.html` (FR), `en.html` (EN),
+`assets/css/style.css`, `assets/js/main.js` (chaînes FR/EN selon `lang`).
+Organisation et points de modification dans `README.md` ; déploiement o2switch
+par SSH via `outils/deploy.sh`.
 
 Les captures et la vidéo d'accroche sont de vraies sorties de l'application, faites avec
 des données fictives : ne jamais y mettre de trouvailles réelles (méthode dans `README.md`).

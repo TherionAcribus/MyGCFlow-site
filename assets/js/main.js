@@ -4,7 +4,25 @@
 
   const REPO = "TherionAcribus/MyGCFlow";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const dateFormat = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+  const lang = document.documentElement.lang === "en" ? "en" : "fr";
+  const locale = lang === "en" ? "en-GB" : "fr-FR";
+  const dateFormat = new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" });
+  const STR = {
+    fr: {
+      play: "Lire",
+      themeAlt: (name) => `Thème ${name}, animation en cours`,
+      videoTitle: "Vidéo de démonstration de MyGCFlow",
+      releaseInfo: (version, published) => [`Dernière version : `, version, `, publiée le ${published}, pour Windows.`],
+      sizeUnit: "Mo",
+    },
+    en: {
+      play: "Play",
+      themeAlt: (name) => `"${name}" theme, animation in progress`,
+      videoTitle: "MyGCFlow demo video",
+      releaseInfo: (version, published) => [`Latest release: `, version, `, published on ${published}, for Windows.`],
+      sizeUnit: "MB",
+    },
+  }[lang];
 
   /* ------------------------------------------------------------------
      Vidéo d'accroche : un export réel de l'application, lu en boucle.
@@ -21,7 +39,7 @@
     const render = () => {
       toggle.setAttribute("aria-pressed", String(!wanted));
       toggle.classList.toggle("is-paused", !wanted);
-      label.textContent = wanted ? "Pause" : "Lire";
+      label.textContent = wanted ? "Pause" : STR.play;
     };
     const sync = () => {
       if (wanted && visible && !document.hidden) {
@@ -62,7 +80,7 @@
         links.forEach((other) => other.removeAttribute("aria-current"));
         link.setAttribute("aria-current", "true");
         image.src = link.getAttribute("href");
-        image.alt = `Thème ${link.dataset.name}, animation en cours`;
+        image.alt = STR.themeAlt(link.dataset.name);
         name.textContent = link.dataset.name;
         caption.textContent = link.dataset.caption;
       });
@@ -78,7 +96,7 @@
       button.addEventListener("click", () => {
         const iframe = document.createElement("iframe");
         iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(figure.dataset.youtubeId)}?autoplay=1&rel=0`;
-        iframe.title = "Vidéo de démonstration de MyGCFlow";
+        iframe.title = STR.videoTitle;
         iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
         iframe.allowFullscreen = true;
         button.replaceWith(iframe);
@@ -109,15 +127,16 @@
       const info = document.getElementById("release-info");
       if (info && release.published_at) {
         const published = dateFormat.format(new Date(release.published_at));
+        const [before, , after] = STR.releaseInfo(version, published);
         info.innerHTML = "";
-        info.append("Dernière version : ");
+        info.append(before);
         const strong = document.createElement("strong");
         strong.textContent = version;
-        info.append(strong, `, publiée le ${published}, pour Windows.`);
+        info.append(strong, after);
       }
 
       const size = (bytes) =>
-        `${(bytes / 1048576).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} Mo`;
+        `${(bytes / 1048576).toLocaleString(locale, { maximumFractionDigits: 0 })} ${STR.sizeUnit}`;
       const bind = (linkId, metaId, pattern, ext) => {
         const asset = (release.assets || []).find((a) => pattern.test(a.name));
         if (!asset) return;

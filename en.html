@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyGCFlow · your geocaches on an animated map</title>
+  <meta name="description" content="MyGCFlow replays your found geocaches on a map, day after day, in the theme of your choice, and records the animation as a video. Free Windows application, in alpha.">
+  <meta name="theme-color" content="#082747">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MyGCFlow">
+  <meta property="og:description" content="Your found geocaches, replayed on a map and recorded as a video.">
+  <!-- og:image demande une URL absolue : l'ajouter quand le domaine du site sera connu,
+       avec assets/img/mygcflow-social-1280x640.png -->
+  <link rel="alternate" hreflang="fr" href="index.html">
+  <link rel="alternate" hreflang="en" href="en.html">
+
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preload" href="assets/fonts/montserrat-600-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#" aria-label="MyGCFlow, back to top">
+        <img src="assets/img/mygcflow-logo-horizontal-fond-sombre.svg" alt="MyGCFlow" width="150" height="48">
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#principe">How it works</a>
+        <a href="#themes">Themes</a>
+        <a href="#reglages">Settings</a>
+        <a href="#evolution">Evolution</a>
+        <a href="#video">Video</a>
+        <a class="nav-github" href="https://github.com/TherionAcribus/MyGCFlow" aria-label="Source code on GitHub">
+          <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+        <a href="index.html" hreflang="fr" lang="fr">FR</a>
+        <a class="btn btn-small" href="#telecharger">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <!-- Accroche -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-text">
+          <p class="badge"><span class="badge-dot" aria-hidden="true"></span>Alpha version · Windows</p>
+          <h1>Your geocaches, replayed on a&nbsp;map.</h1>
+          <p class="lead">
+            MyGCFlow reads your &ldquo;My&nbsp;Finds&rdquo; Pocket Query and brings your caches
+            back day after day, in the theme of your choice. You can then export
+            the animation as a video.
+          </p>
+          <div class="actions">
+            <a class="btn" href="#telecharger">Download for Windows</a>
+            <a class="btn btn-ghost" href="https://github.com/TherionAcribus/MyGCFlow">Source code on GitHub</a>
+          </div>
+          <p class="fineprint">Free. A small personal project, still in early days.</p>
+        </div>
+
+        <!-- Vidéo exportée par l'application elle-même (capture rapide, thème
+             Cinématique), à partir d'un fichier de caches fictives. Elle ne démarre
+             que par JavaScript, et jamais si l'animation réduite est demandée. -->
+        <figure class="demo">
+          <div class="demo-frame">
+            <video id="demo-video" muted loop playsinline preload="none"
+                   poster="assets/img/app/apercu-cinematique.webp" width="1040" height="562"
+                   aria-label="MyGCFlow animation: caches appearing on a dark map of Western Europe, with a counter and a date">
+              <source src="assets/video/apercu-cinematique.webm" type="video/webm">
+              <source src="assets/video/apercu-cinematique.mp4" type="video/mp4">
+            </video>
+            <button class="demo-toggle" id="demo-toggle" type="button" hidden aria-pressed="false">
+              <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+              <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+              <span class="demo-toggle-label">Pause</span>
+            </button>
+          </div>
+          <figcaption>Video exported with MyGCFlow (&ldquo;Cinématique&rdquo; theme), using fictional caches.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Principe -->
+    <section id="principe" class="section">
+      <div class="wrap">
+        <h2 class="reveal">How it works</h2>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Load your geocaches</h3>
+            <p>
+              Export the &ldquo;My&nbsp;Finds&rdquo; Pocket Query from geocaching.com, then load the
+              <code>.gpx</code> or <code>.zip</code> file, or drop it onto the page. Filter by type,
+              size, difficulty, terrain, date range or country.
+            </p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Pick a theme</h3>
+            <p>
+              Start from a bundled theme, then tune the basemap, the points, the appearance
+              flash, the title and the counter. Save the result under your own name.
+            </p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Preview, then export</h3>
+            <p>
+              Choose the period and the pace, add some music if you like,
+              check the result on screen, then export the video.
+            </p>
+          </li>
+        </ol>
+        <p class="note reveal">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg>
+          <span>
+            Your data stays on your computer. The application runs locally and opens in your
+            browser; only the basemap tiles come from the Internet.
+          </span>
+        </p>
+      </div>
+    </section>
+
+    <!-- L'application -->
+    <section id="application" class="section section-alt">
+      <div class="wrap">
+        <h2 class="reveal">What the application looks like</h2>
+        <p class="section-lead reveal">
+          The map on one side, the settings on the other: every change shows right away.
+        </p>
+
+        <figure class="shot reveal">
+          <div class="shot-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <img src="assets/img/app/interface-themes.webp" width="1440" height="900" loading="lazy"
+               alt="Screenshot of MyGCFlow: on the left, a map of Western Europe covered with colored dots; on the right, the Style tab with the theme list and their thumbnails.">
+          <figcaption>The Style tab and the theme list. Screenshot made with fictional caches.</figcaption>
+        </figure>
+
+        <ul class="points reveal">
+          <li><strong>Four tabs</strong> that follow the workflow: Data, Style, Animation, Settings.</li>
+          <li><strong>Playback always within reach</strong>: preview, export, pause or stop from the top bar.</li>
+          <li><strong>Four screen layouts</strong>, from a large map to a side panel, plus fullscreen.</li>
+          <li><strong>Light or dark interface</strong>, in French or English, with a built-in user guide.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Thèmes -->
+    <section id="themes" class="section">
+      <div class="wrap">
+        <h2 class="reveal">The bundled themes</h2>
+        <p class="section-lead reveal">
+          A theme gathers all the visual settings. These ship with the application;
+          each one can be edited, duplicated, exported or imported as JSON.
+        </p>
+
+        <!-- Chaque vignette est un lien vers l'image : sans JavaScript, il l'ouvre ;
+             avec, main.js l'affiche dans le cadre du dessus.
+             Pour ajouter un thème : dupliquer un <li>, changer href, src et data-caption. -->
+        <div class="gallery reveal" id="gallery">
+          <figure class="gallery-main">
+            <img id="gallery-image" src="assets/img/app/theme-carnet-aquarelle.webp" width="1040" height="497"
+                 alt="&ldquo;Carnet Aquarelle&rdquo; theme, animation in progress">
+            <figcaption>
+              <strong id="gallery-name">Carnet Aquarelle</strong>
+              <span id="gallery-caption">Watercolor background and Geocaching icons.</span>
+            </figcaption>
+          </figure>
+          <ul class="gallery-thumbs">
+            <li><a href="assets/img/app/theme-carnet-aquarelle.webp" data-name="Carnet Aquarelle" data-caption="Watercolor background and Geocaching icons." aria-current="true"><img src="assets/img/app/theme-carnet-aquarelle.webp" width="1040" height="497" loading="lazy" alt="Carnet Aquarelle"></a></li>
+            <li><a href="assets/img/app/theme-aurore-polaire.webp" data-name="Aurore Polaire" data-caption="Night vector map, turquoise triangles and waves."><img src="assets/img/app/theme-aurore-polaire.webp" width="1040" height="497" loading="lazy" alt="Aurore Polaire"></a></li>
+            <li><a href="assets/img/app/theme-atlas-vintage.webp" data-name="Atlas Vintage" data-caption="Sepia vector map, like an old atlas."><img src="assets/img/app/theme-atlas-vintage.webp" width="1040" height="497" loading="lazy" alt="Atlas Vintage"></a></li>
+            <li><a href="assets/img/app/theme-default.webp" data-name="Default" data-caption="OpenStreetMap and colors by cache type: the starting theme."><img src="assets/img/app/theme-default.webp" width="1040" height="497" loading="lazy" alt="Default"></a></li>
+            <li><a href="assets/img/app/theme-encre-papier.webp" data-name="Encre &amp; Papier" data-caption="Black and white background, ink points."><img src="assets/img/app/theme-encre-papier.webp" width="1040" height="497" loading="lazy" alt="Encre &amp; Papier"></a></li>
+            <li><a href="assets/img/app/theme-nocturne-neon.webp" data-name="Nocturne Neon" data-caption="Black seas, pink diamond flashes."><img src="assets/img/app/theme-nocturne-neon.webp" width="1040" height="497" loading="lazy" alt="Nocturne Neon"></a></li>
+            <li><a href="assets/img/app/theme-randonnee-topo.webp" data-name="Randonnée Topo" data-caption="OpenStreetMap, icons and a dashed trail."><img src="assets/img/app/theme-randonnee-topo.webp" width="1040" height="497" loading="lazy" alt="Randonnée Topo"></a></li>
+            <li><a href="assets/img/app/theme-sakura-pastel.webp" data-name="Sakura Pastel" data-caption="Watercolor background, pink points and star flashes."><img src="assets/img/app/theme-sakura-pastel.webp" width="1040" height="497" loading="lazy" alt="Sakura Pastel"></a></li>
+            <li><a href="assets/img/app/theme-cinematique.webp" data-name="Cinématique" data-caption="Dark vector map, pulsing flash. This is the one in the video at the top of the page."><img src="assets/img/app/theme-cinematique.webp" width="1040" height="497" loading="lazy" alt="Cinématique"></a></li>
+            <li><a href="assets/img/app/theme-epure.webp" data-name="Épure" data-caption="Discreet light background, to leave room for the points."><img src="assets/img/app/theme-epure.webp" width="1040" height="497" loading="lazy" alt="Épure"></a></li>
+            <li><a href="assets/img/app/theme-fete-confetti.webp" data-name="Fête Confetti" data-caption="OpenStreetMap, sparkling flashes and a colorful title."><img src="assets/img/app/theme-fete-confetti.webp" width="1040" height="497" loading="lazy" alt="Fête Confetti"></a></li>
+            <li><a href="assets/img/app/theme-presentation-impact.webp" data-name="Présentation Impact" data-caption="OpenStreetMap, large, clearly visible square flashes."><img src="assets/img/app/theme-presentation-impact.webp" width="1040" height="497" loading="lazy" alt="Présentation Impact"></a></li>
+            <li><a href="assets/img/app/theme-signal-technique.webp" data-name="Signal Technique" data-caption="Light background, squares and monospace typography."><img src="assets/img/app/theme-signal-technique.webp" width="1040" height="497" loading="lazy" alt="Signal Technique"></a></li>
+          </ul>
+        </div>
+        <p class="fineprint reveal">Screenshots of the application mid-animation, with the same fictional caches file.</p>
+      </div>
+    </section>
+
+    <!-- Réglages -->
+    <section id="reglages" class="section section-alt">
+      <div class="wrap">
+        <h2 class="reveal">What you can adjust</h2>
+        <p class="section-lead reveal">Everything is set in the interface, with nothing to write.</p>
+
+        <div class="features">
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14"/></g></svg>
+            <h3>Basemaps</h3>
+            <p>OpenStreetMap, light or dark Toner, watercolor, or a vector map where you choose the colors and the line thickness.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="8" r="3"/><path d="M17 5l3.5 6h-7zM5 16h5v5H5z"/><circle cx="17" cy="18" r="2.5"/></g></svg>
+            <h3>Points</h3>
+            <p>Vector shapes or icons (Geocaching, Smiley), size, border, and fixed colors or colors taken from the cache type.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="6"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></g></svg>
+            <h3>Appearance flash</h3>
+            <p>The effect played when a cache appears: circle, pulse with a wave, star, sparkle, square, diamond… with its size, duration and color.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h7M7 14h4"/></g></svg>
+            <h3>Title and information</h3>
+            <p>A title and a panel with the cache count and the current date. Text, box, shadow and position are set by tabs, or in CSS if you prefer.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></g></svg>
+            <h3>Pace and music</h3>
+            <p>Set the speed in days per second or the final video duration. With music, the animation can match the track's length.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></g></svg>
+            <h3>Video export</h3>
+            <p>Fast capture in the browser, or frame-by-frame rendering assembled by ffmpeg, slower but steadier. Output resolution up to 4K.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><circle cx="12" cy="12" r="3"/></g></svg>
+            <h3>Camera follow <span class="tag">Experimental</span></h3>
+            <p>The view drifts toward the day's caches, and zooms out for the duration of a big jump. Four levels of dynamism.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path d="M14 17h6M17 14v6"/></g></svg>
+            <h3>Filters</h3>
+            <p>Keep only part of your caches: a type, a size, a difficulty, a terrain, a period, a country or a region.</p>
+          </article>
+        </div>
+
+        <article class="split reveal">
+          <div class="split-text">
+            <h3>The geocacher's trail</h3>
+            <p>
+              Optionally, a line links the caches from one day to the next and reaches the new
+              ones as they appear. Long jumps are drawn as arcs, like a flight.
+              Color, thickness, pattern, glow and the fading trail are set in the theme.
+            </p>
+            <p class="fineprint">
+              The trail is indicative: it is reconstructed from dates, without knowing
+              the real order of visits, and follows neither roads nor terrain.
+            </p>
+          </div>
+          <figure class="split-figure">
+            <img src="assets/img/app/trajet.webp" width="1040" height="497" loading="lazy"
+                 alt="Dark map where blue arcs connect groups of caches between France and neighboring countries.">
+            <figcaption>Preview of the computed trail, &ldquo;Full journey&rdquo; preset. Fictional caches.</figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- Mode Évolution -->
+    <section id="evolution" class="section">
+      <div class="wrap">
+        <h2 class="reveal">Another mode: the evolution of an area</h2>
+        <p class="section-lead reveal">
+          Instead of your own caches, animate all of them in a region.
+        </p>
+
+        <div class="duo">
+          <figure class="reveal">
+            <img src="assets/img/app/evolution-classique.webp" width="1040" height="464" loading="lazy"
+                 alt="OpenStreetMap map of a region covered with thousands of small dots, with the date and the number of active caches.">
+            <figcaption>&ldquo;Évolution Classique&rdquo; theme.</figcaption>
+          </figure>
+          <figure class="reveal">
+            <img src="assets/img/app/evolution-nuit.webp" width="1040" height="464" loading="lazy"
+                 alt="The same region on a dark background: yellow dots, and rings where caches appear or disappear.">
+            <figcaption>&ldquo;Évolution Nuit&rdquo; theme. Fictional area and caches.</figcaption>
+          </figure>
+        </div>
+
+        <ul class="points reveal">
+          <li>Each cache <strong>appears on its placement date</strong> and <strong>disappears when archived</strong>; the counter tracks the number of active caches.</li>
+          <li>The data comes from <strong>CSV exports</strong> of the area (GC code, coordinates, dates). Several files merge into a database, to be topped up later with a fresher export.</li>
+          <li>This mode has its <strong>own themes</strong>, designed for thousands of points, and a separate flash for disappearances.</li>
+          <li>Corrected coordinates are never used, so as not to reveal mystery finals in a video.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Vidéo -->
+    <section id="video" class="section section-alt">
+      <div class="wrap">
+        <h2 class="reveal">A full video</h2>
+        <p class="section-lead reveal">An animation recorded with MyGCFlow.</p>
+
+        <!-- Pour changer de vidéo, remplacer data-youtube-id. Pour en ajouter une,
+             dupliquer ce bloc <figure>. -->
+        <figure class="video reveal" data-youtube-id="Gqk3JlpNE18">
+          <button class="video-facade" type="button" aria-label="Play the demo video (YouTube)">
+            <img src="assets/img/mygcflow-logo-horizontal-fond-sombre.svg" alt="" width="1280" height="640" loading="lazy">
+            <span class="video-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+          <figcaption>The video loads from YouTube on click.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Alpha -->
+    <section id="alpha" class="section">
+      <div class="wrap narrow">
+        <h2 class="reveal">A project in alpha</h2>
+        <p class="reveal">
+          MyGCFlow works, but it is young: the current version is
+          <strong class="js-version">0.0.3</strong>. Expect bugs, settings that
+          change from one version to the next, and an interface still being polished.
+        </p>
+        <ul class="facts reveal">
+          <li>Windows only for now.</li>
+          <li>
+            The application is not signed yet: on first launch, Windows SmartScreen shows
+            a warning.
+          </li>
+          <li>
+            Feedback is welcome: via my
+            <a href="https://www.geocaching.com/p/?guid=b19d6e80-a3cd-49f5-8bad-35351a14681c">Geocaching profile</a>,
+            by email at <a href="mailto:at_mop@hotmail.com?subject=MyGCFlow">at_mop@hotmail.com</a>
+            or through <a href="https://github.com/TherionAcribus/MyGCFlow/issues">GitHub issues</a>.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feuille de route -->
+    <section id="a-venir" class="section section-alt">
+      <div class="wrap">
+        <h2 class="reveal">What's left to do</h2>
+        <p class="section-lead reveal">The next work areas, with no promised dates.</p>
+
+        <div class="roadmap">
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18M9 16l2 2 4-4"/></g></svg>
+            <h3>Challenge cache dates</h3>
+            <p>Better handling of Challenge cache dates, so they appear at the right time in the animation.</p>
+          </article>
+
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></g></svg>
+            <h3>Custom images</h3>
+            <p>Display your own images during the animation.</p>
+          </article>
+
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></g></svg>
+            <h3>Matrices and real-time statistics</h3>
+            <p>Watch the difficulty/terrain matrix and other statistics fill up as the animation runs.</p>
+          </article>
+
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3M7.5 15h9"/></g></svg>
+            <h3>Lab Caches support</h3>
+            <p>Take Lab Caches into account, so they appear on the map too.</p>
+          </article>
+
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16v4M17 18h4"/></g></svg>
+            <h3>New effects</h3>
+            <p>Expand the palette of effects available for the animation.</p>
+          </article>
+
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.9l7.6-3.8M8.2 13.1l7.6 3.8"/></g></svg>
+            <h3>Theme sharing</h3>
+            <p>Let everyone offer their best themes to other users. The form this will take remains to be found.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Téléchargement -->
+    <section id="telecharger" class="section download">
+      <div class="wrap narrow center">
+        <img class="download-icon reveal" src="assets/img/mygcflow-symbole.svg" alt="" width="88" height="88">
+        <h2 class="reveal">Download MyGCFlow</h2>
+        <p class="reveal" id="release-info">
+          Latest release: <strong class="js-version">0.0.3</strong>, for Windows.
+        </p>
+        <div class="actions center reveal">
+          <a class="btn" id="dl-setup" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Installer <span class="btn-meta" id="dl-setup-meta">.exe</span></a>
+          <a class="btn btn-ghost" id="dl-portable" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Portable version <span class="btn-meta" id="dl-portable-meta">.zip</span></a>
+        </div>
+        <p class="fineprint reveal">
+          Nothing else to install: Python and ffmpeg are included.
+          On first launch, click &ldquo;More info&rdquo;, then
+          &ldquo;Run anyway&rdquo;.
+          The application lives in the notification area: that's where you reopen
+          it or quit it.
+          <br>
+          <a href="https://github.com/TherionAcribus/MyGCFlow/releases">Release notes and older versions</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <img src="assets/img/mygcflow-logo-horizontal-fond-sombre.svg" alt="MyGCFlow" width="125" height="40">
+      <p>
+        <a href="https://github.com/TherionAcribus/MyGCFlow">GitHub</a>
+        · <a href="https://github.com/TherionAcribus/MyGCFlow/issues">Report a problem</a>
+        · <a href="https://www.geocaching.com/p/?guid=b19d6e80-a3cd-49f5-8bad-35351a14681c">Geocaching profile</a>
+        · <a href="mailto:at_mop@hotmail.com?subject=MyGCFlow">at_mop@hotmail.com</a>
+      </p>
+      <p>
+        Inspired by <a href="https://github.com/GarenKreiz/Geocaching-Animation">Geocaching-Animation</a>
+        by GarenKreiz, where the idea of replaying one's caches day after day comes from.
+      </p>
+      <p class="footer-legal">
+        MyGCFlow is not affiliated with Groundspeak / Geocaching.com.
+        Basemaps in the screenshots: ©&nbsp;OpenStreetMap contributors, Stadia Maps, Stamen Design,
+        OpenMapTiles; borders Natural Earth.
+        Montserrat font under the <a href="assets/fonts/Montserrat-OFL.txt">SIL OFL license</a>.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

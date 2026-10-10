@@ -15,10 +15,12 @@ sauf la récupération de la dernière version publiée.
 ## Organisation
 
 ```
-index.html            la page
+index.html            la page, en français
+en.html               la même page, en anglais (liens croisés FR/EN dans la nav)
 assets/css/style.css  styles (couleurs du kit en variables, mode sombre automatique)
 assets/js/main.js     vidéo d'accroche, galerie des thèmes, vidéo YouTube,
-                      dernière version, apparitions
+                      dernière version, apparitions (chaînes FR/EN selon <html lang>)
+.htaccess             renvoie 404 sur /.git* (le docroot est un clone git)
 assets/fonts/         Montserrat 600–800, réduite aux caractères latins (22 Ko)
 assets/img/           logos et favicons copiés depuis le kit
 assets/img/app/       captures de l'application (thèmes, interface, trajet, mode Évolution)
@@ -55,6 +57,33 @@ dossier temporaire et gardent des chemins de cette machine (import de Playwright
    animation en pause), `shot3.mjs` (trajet, mode Évolution), `export.mjs` (vidéo exportée
    par l'application).
 4. Convertir en WebP (1040 px de large) et réencoder la vidéo avec ffmpeg.
+
+## Déploiement (o2switch)
+
+Le site est servi depuis un clone du dépôt placé dans le docroot du domaine ;
+`outils/deploy.sh` déclenche le `git pull` par SSH. Mise en place, une fois :
+
+1. cPanel → **Autorisation SSH** : mettre son IP en liste blanche. La connexion
+   utilise l'identifiant/mot de passe cPanel ; déposer une clé publique dans
+   `~/.ssh/authorized_keys` sur l'hébergement évite de le retaper.
+2. Sur le serveur, peupler le docroot avec le dépôt :
+
+   ```bash
+   cd ~/public_html   # ou le dossier du domaine concerné
+   git init
+   git remote add origin https://github.com/TherionAcribus/MyGCFlow-site.git
+   git fetch origin
+   git checkout -f -b main --track origin/main
+   ```
+
+   Le `-f` écrase les éventuels fichiers de placeholder existants. Si le dépôt
+   est privé, utiliser une deploy key plutôt que l'URL HTTPS.
+3. Copier `outils/deploy.conf.example` en `outils/deploy.conf` (ignoré par git)
+   et renseigner `O2S_SSH` et `O2S_PATH`.
+
+Ensuite, `bash outils/deploy.sh` (Git Bash) applique la dernière version poussée
+sur `main`. Le `.htaccess` du dépôt renvoie 404 sur `/.git*` : le clone dans le
+docroot n'est pas exposé.
 
 ## À compléter à la mise en ligne
 

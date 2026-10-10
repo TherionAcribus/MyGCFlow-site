@@ -11,3 +11,6 @@ build/
 .env.*
 .DS_Store
 Thumbs.db
+
+# Config locale de déploiement (identifiants serveur)
+outils/deploy.conf

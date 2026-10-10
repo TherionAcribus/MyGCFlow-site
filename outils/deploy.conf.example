@@ -1,0 +1,11 @@
+# Copier ce fichier en deploy.conf (non versionné) et renseigner les valeurs.
+
+# Connexion SSH : identifiant cPanel @ hôte. L'hôte est le nom du serveur
+# (communiqué dans le mail « Bienvenue chez o2switch », ex. truc.o2switch.net)
+# ou un domaine qui pointe directement sur l'hébergement.
+O2S_SSH="identifiantcpanel@nom-serveur.o2switch.net"
+
+# Dossier du site sur le serveur : le docroot du domaine, qui est un clone
+# du dépôt. public_html pour le domaine principal, ou le dossier d'un
+# domaine compagnon / sous-domaine (ex. mygcflow.fr).
+O2S_PATH="public_html"
