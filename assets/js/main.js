@@ -12,14 +12,14 @@
       play: "Lire",
       themeAlt: (name) => `Thème ${name}, animation en cours`,
       videoTitle: "Vidéo de démonstration de MyGCFlow",
-      releaseInfo: (version, published) => [`Dernière version : `, version, `, publiée le ${published}, pour Windows.`],
+      releaseInfo: (version, published) => [`Dernière version : `, version, `, publiée le ${published}, pour Windows et Linux.`],
       sizeUnit: "Mo",
     },
     en: {
       play: "Play",
       themeAlt: (name) => `"${name}" theme, animation in progress`,
       videoTitle: "MyGCFlow demo video",
-      releaseInfo: (version, published) => [`Latest release: `, version, `, published on ${published}, for Windows.`],
+      releaseInfo: (version, published) => [`Latest release: `, version, `, published on ${published}, for Windows and Linux.`],
       sizeUnit: "MB",
     },
   }[lang];
@@ -145,6 +145,7 @@
       };
       bind("dl-setup", "dl-setup-meta", /setup.*\.exe$/i, ".exe");
       bind("dl-portable", "dl-portable-meta", /portable.*\.zip$/i, ".zip");
+      bind("dl-linux", "dl-linux-meta", /linux.*\.tar\.gz$/i, ".tar.gz");
     } catch {
       // Hors ligne, quota de l'API dépassé… les liens par défaut suffisent.
     } finally {

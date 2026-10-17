@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MyGCFlow · vos géocaches en carte animée</title>
-  <meta name="description" content="MyGCFlow rejoue vos géocaches trouvées sur une carte, jour après jour, dans le thème de votre choix, et enregistre l'animation en vidéo. Application Windows gratuite, en version alpha.">
+  <meta name="description" content="MyGCFlow rejoue vos géocaches trouvées et vos étapes Adventure Lab sur une carte, jour après jour, dans le thème de votre choix, et enregistre l'animation en vidéo. Application gratuite pour Windows et Linux, en version alpha.">
   <meta name="theme-color" content="#082747">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="MyGCFlow">
-  <meta property="og:description" content="Vos géocaches trouvées, rejouées sur une carte et enregistrées en vidéo.">
+  <meta property="og:description" content="Vos géocaches trouvées et vos étapes Adventure Lab, rejouées sur une carte et enregistrées en vidéo.">
   <!-- og:image demande une URL absolue : l'ajouter quand le domaine du site sera connu,
        avec assets/img/mygcflow-social-1280x640.png -->
   <link rel="alternate" hreflang="en" href="en.html">
@@ -53,15 +53,15 @@
     <section class="hero">
       <div class="wrap hero-inner">
         <div class="hero-text">
-          <p class="badge"><span class="badge-dot" aria-hidden="true"></span>Version alpha · Windows</p>
+          <p class="badge"><span class="badge-dot" aria-hidden="true"></span>Version alpha · Windows et Linux</p>
           <h1>Vos géocaches, rejouées sur une&nbsp;carte.</h1>
           <p class="lead">
             MyGCFlow lit votre Pocket Query «&nbsp;My&nbsp;Finds&nbsp;» et fait réapparaître vos caches
-            jour après jour, dans le thème de votre choix. Vous pouvez ensuite exporter
-            l'animation en vidéo.
+            — et vos étapes Adventure Lab si vous le souhaitez — jour après jour, dans le thème
+            de votre choix. Vous pouvez ensuite exporter l'animation en vidéo.
           </p>
           <div class="actions">
-            <a class="btn" href="#telecharger">Télécharger pour Windows</a>
+            <a class="btn" href="#telecharger">Télécharger</a>
             <a class="btn btn-ghost" href="https://github.com/TherionAcribus/MyGCFlow">Code source sur GitHub</a>
           </div>
           <p class="fineprint">Gratuit. Un petit projet personnel, encore en rodage.</p>
@@ -99,8 +99,9 @@
             <h3>Chargez vos géocaches</h3>
             <p>
               Exportez la Pocket Query «&nbsp;My&nbsp;Finds&nbsp;» depuis geocaching.com, puis chargez le
-              fichier <code>.gpx</code> ou <code>.zip</code>, ou glissez-le sur la page. Filtrez par type,
-              taille, difficulté, terrain, période ou pays.
+              fichier <code>.gpx</code> ou <code>.zip</code>, ou glissez-le sur la page. Vos étapes
+              Adventure Lab peuvent s'y joindre&nbsp;: un favori navigateur envoie votre historique
+              en un clic. Filtrez par type, taille, difficulté, terrain, période ou pays.
             </p>
           </li>
           <li class="step reveal">
@@ -124,7 +125,9 @@
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg>
           <span>
             Vos données restent sur votre ordinateur. L'application tourne en local et s'ouvre dans votre
-            navigateur&nbsp;; seules les tuiles du fond de carte viennent d'Internet.
+            navigateur&nbsp;; seules les tuiles du fond de carte viennent d'Internet. Pour les Lab Caches,
+            la récupération des positions n'échange avec le service public lab2gpx que des identifiants
+            d'Adventures — jamais d'identifiant de compte — et se désactive dans les options.
           </span>
         </p>
       </div>
@@ -225,7 +228,7 @@
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></g></svg>
             <h3>Rythme et musique</h3>
-            <p>Fixez la vitesse en jours par seconde ou la durée finale de la vidéo. Avec une musique, l'animation peut se caler sur la durée du morceau.</p>
+            <p>Fixez la vitesse en jours par seconde ou la durée finale de la vidéo. Une musique — ou plusieurs enchaînées, avec fondus — peut donner le tempo, avec boucle, volume harmonisé et découpe aux endroits choisis.</p>
           </article>
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></g></svg>
@@ -235,12 +238,17 @@
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><circle cx="12" cy="12" r="3"/></g></svg>
             <h3>Suivi de caméra <span class="tag">Expérimental</span></h3>
-            <p>La vue glisse vers les caches du jour, et dézoome le temps d'un grand déplacement. Quatre niveaux de dynamisme.</p>
+            <p>La vue glisse vers les caches du jour — ou suit la tête du trajet en continu — et dézoome le temps d'un grand déplacement. Quatre niveaux de dynamisme.</p>
           </article>
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path d="M14 17h6M17 14v6"/></g></svg>
             <h3>Filtres</h3>
             <p>Ne gardez qu'une partie de vos caches&nbsp;: un type, une taille, une difficulté, un terrain, une période, un pays ou une région.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></g></svg>
+            <h3>Lab Caches</h3>
+            <p>Vos étapes Adventure Lab rejoignent la carte comme des trouvailles&nbsp;: import en un clic via un favori navigateur ou par fichiers, positions récupérées automatiquement, compteur, trajet et vidéo inclus.</p>
           </article>
         </div>
 
@@ -299,19 +307,29 @@
     <!-- Vidéo -->
     <section id="video" class="section section-alt">
       <div class="wrap">
-        <h2 class="reveal">Une vidéo complète</h2>
-        <p class="section-lead reveal">Une animation enregistrée avec MyGCFlow.</p>
+        <h2 class="reveal">Des vidéos complètes</h2>
+        <p class="section-lead reveal">Des animations enregistrées avec MyGCFlow.</p>
 
         <!-- Pour changer de vidéo, remplacer data-youtube-id. Pour en ajouter une,
              dupliquer ce bloc <figure>. -->
-        <figure class="video reveal" data-youtube-id="Gqk3JlpNE18">
-          <button class="video-facade" type="button" aria-label="Lire la vidéo de démonstration (YouTube)">
+        <figure class="video reveal" data-youtube-id="0N4ljMRQwww">
+          <button class="video-facade" type="button" aria-label="Lire la vidéo « Évolution des caches » (YouTube)">
             <img src="assets/img/mygcflow-logo-horizontal-fond-sombre.svg" alt="" width="1280" height="640" loading="lazy">
             <span class="video-play" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
             </span>
           </button>
-          <figcaption>La vidéo se charge depuis YouTube au clic.</figcaption>
+          <figcaption>Mode Évolution&nbsp;: les caches d'une zone jusqu'en mai 2015. La vidéo se charge depuis YouTube au clic.</figcaption>
+        </figure>
+
+        <figure class="video reveal" data-youtube-id="OY7B0ChPWco">
+          <button class="video-facade" type="button" aria-label="Lire la vidéo « Signal Technique » (YouTube)">
+            <img src="assets/img/mygcflow-logo-horizontal-fond-sombre.svg" alt="" width="1280" height="640" loading="lazy">
+            <span class="video-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+          <figcaption>Thème «&nbsp;Signal Technique&nbsp;». La vidéo se charge depuis YouTube au clic.</figcaption>
         </figure>
       </div>
     </section>
@@ -322,11 +340,11 @@
         <h2 class="reveal">Un projet en version alpha</h2>
         <p class="reveal">
           MyGCFlow fonctionne, mais il est jeune&nbsp;: la version actuelle est la
-          <strong class="js-version">0.0.3</strong>. Attendez-vous à des bugs, à des réglages qui
+          <strong class="js-version">0.0.5</strong>. Attendez-vous à des bugs, à des réglages qui
           changent d'une version à l'autre et à une interface encore en rodage.
         </p>
         <ul class="facts reveal">
-          <li>Windows uniquement pour l'instant.</li>
+          <li>Windows et Linux.</li>
           <li>
             L'application n'est pas encore signée&nbsp;: au premier lancement, Windows SmartScreen affiche
             un avertissement.
@@ -367,12 +385,6 @@
           </article>
 
           <article class="card reveal">
-            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3M7.5 15h9"/></g></svg>
-            <h3>Gestion des Lab Caches</h3>
-            <p>Prendre en compte les Lab Caches, pour qu'elles apparaissent elles aussi sur la carte.</p>
-          </article>
-
-          <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16v4M17 18h4"/></g></svg>
             <h3>Nouveaux effets</h3>
             <p>Enrichir la palette d'effets disponibles pour l'animation.</p>
@@ -393,15 +405,17 @@
         <img class="download-icon reveal" src="assets/img/mygcflow-symbole.svg" alt="" width="88" height="88">
         <h2 class="reveal">Télécharger MyGCFlow</h2>
         <p class="reveal" id="release-info">
-          Dernière version&nbsp;: <strong class="js-version">0.0.3</strong>, pour Windows.
+          Dernière version&nbsp;: <strong class="js-version">0.0.5</strong>, pour Windows et Linux.
         </p>
         <div class="actions center reveal">
           <a class="btn" id="dl-setup" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Installeur <span class="btn-meta" id="dl-setup-meta">.exe</span></a>
           <a class="btn btn-ghost" id="dl-portable" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Version portable <span class="btn-meta" id="dl-portable-meta">.zip</span></a>
+          <a class="btn btn-ghost" id="dl-linux" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Version Linux <span class="btn-meta" id="dl-linux-meta">.tar.gz</span></a>
         </div>
         <p class="fineprint reveal">
-          Rien d'autre à installer&nbsp;: Python et ffmpeg sont inclus.
-          Au premier lancement, cliquez sur «&nbsp;Informations complémentaires&nbsp;», puis
+          Sous Windows, rien d'autre à installer&nbsp;: Python et ffmpeg sont inclus.
+          Sous Linux, seul Python est requis&nbsp;; ffmpeg et les autres outils sont optionnels.
+          Sous Windows, au premier lancement, cliquez sur «&nbsp;Informations complémentaires&nbsp;», puis
           «&nbsp;Exécuter quand même&nbsp;».
           L'application se loge dans la zone de notification&nbsp;: c'est de là qu'on la rouvre
           ou qu'on la quitte.

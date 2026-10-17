@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MyGCFlow · your geocaches on an animated map</title>
-  <meta name="description" content="MyGCFlow replays your found geocaches on a map, day after day, in the theme of your choice, and records the animation as a video. Free Windows application, in alpha.">
+  <meta name="description" content="MyGCFlow replays your found geocaches and your Adventure Lab stages on a map, day after day, in the theme of your choice, and records the animation as a video. Free application for Windows and Linux, in alpha.">
   <meta name="theme-color" content="#082747">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="MyGCFlow">
-  <meta property="og:description" content="Your found geocaches, replayed on a map and recorded as a video.">
+  <meta property="og:description" content="Your found geocaches and Adventure Lab stages, replayed on a map and recorded as a video.">
   <!-- og:image demande une URL absolue : l'ajouter quand le domaine du site sera connu,
        avec assets/img/mygcflow-social-1280x640.png -->
   <link rel="alternate" hreflang="fr" href="index.html">
@@ -53,15 +53,15 @@
     <section class="hero">
       <div class="wrap hero-inner">
         <div class="hero-text">
-          <p class="badge"><span class="badge-dot" aria-hidden="true"></span>Alpha version · Windows</p>
+          <p class="badge"><span class="badge-dot" aria-hidden="true"></span>Alpha version · Windows and Linux</p>
           <h1>Your geocaches, replayed on a&nbsp;map.</h1>
           <p class="lead">
             MyGCFlow reads your &ldquo;My&nbsp;Finds&rdquo; Pocket Query and brings your caches
-            back day after day, in the theme of your choice. You can then export
-            the animation as a video.
+            &mdash; and your Adventure Lab stages if you like &mdash; back day after day,
+            in the theme of your choice. You can then export the animation as a video.
           </p>
           <div class="actions">
-            <a class="btn" href="#telecharger">Download for Windows</a>
+            <a class="btn" href="#telecharger">Download</a>
             <a class="btn btn-ghost" href="https://github.com/TherionAcribus/MyGCFlow">Source code on GitHub</a>
           </div>
           <p class="fineprint">Free. A small personal project, still in early days.</p>
@@ -99,8 +99,9 @@
             <h3>Load your geocaches</h3>
             <p>
               Export the &ldquo;My&nbsp;Finds&rdquo; Pocket Query from geocaching.com, then load the
-              <code>.gpx</code> or <code>.zip</code> file, or drop it onto the page. Filter by type,
-              size, difficulty, terrain, date range or country.
+              <code>.gpx</code> or <code>.zip</code> file, or drop it onto the page. Your Adventure
+              Lab stages can join them: a browser bookmark sends your history in one click.
+              Filter by type, size, difficulty, terrain, date range or country.
             </p>
           </li>
           <li class="step reveal">
@@ -124,7 +125,9 @@
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg>
           <span>
             Your data stays on your computer. The application runs locally and opens in your
-            browser; only the basemap tiles come from the Internet.
+            browser; only the basemap tiles come from the Internet. For Lab Caches, fetching
+            the positions exchanges only Adventure identifiers with the public lab2gpx service
+            &mdash; never an account identifier &mdash; and can be turned off in the options.
           </span>
         </p>
       </div>
@@ -225,7 +228,7 @@
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></g></svg>
             <h3>Pace and music</h3>
-            <p>Set the speed in days per second or the final video duration. With music, the animation can match the track's length.</p>
+            <p>Set the speed in days per second or the final video duration. One track &mdash; or several chained with crossfades &mdash; can set the tempo, with loop, harmonized volume and chosen start and end points.</p>
           </article>
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></g></svg>
@@ -235,12 +238,17 @@
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><circle cx="12" cy="12" r="3"/></g></svg>
             <h3>Camera follow <span class="tag">Experimental</span></h3>
-            <p>The view drifts toward the day's caches, and zooms out for the duration of a big jump. Four levels of dynamism.</p>
+            <p>The view drifts toward the day's caches &mdash; or follows the head of the trail continuously &mdash; and zooms out for the duration of a big jump. Four levels of dynamism.</p>
           </article>
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path d="M14 17h6M17 14v6"/></g></svg>
             <h3>Filters</h3>
             <p>Keep only part of your caches: a type, a size, a difficulty, a terrain, a period, a country or a region.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></g></svg>
+            <h3>Lab Caches</h3>
+            <p>Your Adventure Lab stages join the map like finds: one-click import through a browser bookmark or via files, positions fetched automatically, counter, trail and video included.</p>
           </article>
         </div>
 
@@ -299,19 +307,29 @@
     <!-- Vidéo -->
     <section id="video" class="section section-alt">
       <div class="wrap">
-        <h2 class="reveal">A full video</h2>
-        <p class="section-lead reveal">An animation recorded with MyGCFlow.</p>
+        <h2 class="reveal">Full videos</h2>
+        <p class="section-lead reveal">Animations recorded with MyGCFlow.</p>
 
         <!-- Pour changer de vidéo, remplacer data-youtube-id. Pour en ajouter une,
              dupliquer ce bloc <figure>. -->
-        <figure class="video reveal" data-youtube-id="Gqk3JlpNE18">
-          <button class="video-facade" type="button" aria-label="Play the demo video (YouTube)">
+        <figure class="video reveal" data-youtube-id="0N4ljMRQwww">
+          <button class="video-facade" type="button" aria-label="Play the “Cache evolution” video (YouTube)">
             <img src="assets/img/mygcflow-logo-horizontal-fond-sombre.svg" alt="" width="1280" height="640" loading="lazy">
             <span class="video-play" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
             </span>
           </button>
-          <figcaption>The video loads from YouTube on click.</figcaption>
+          <figcaption>Evolution mode: the caches of an area up to May 2015. The video loads from YouTube on click.</figcaption>
+        </figure>
+
+        <figure class="video reveal" data-youtube-id="OY7B0ChPWco">
+          <button class="video-facade" type="button" aria-label="Play the “Signal Technique” video (YouTube)">
+            <img src="assets/img/mygcflow-logo-horizontal-fond-sombre.svg" alt="" width="1280" height="640" loading="lazy">
+            <span class="video-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+          <figcaption>&ldquo;Signal Technique&rdquo; theme. The video loads from YouTube on click.</figcaption>
         </figure>
       </div>
     </section>
@@ -322,11 +340,11 @@
         <h2 class="reveal">A project in alpha</h2>
         <p class="reveal">
           MyGCFlow works, but it is young: the current version is
-          <strong class="js-version">0.0.3</strong>. Expect bugs, settings that
+          <strong class="js-version">0.0.5</strong>. Expect bugs, settings that
           change from one version to the next, and an interface still being polished.
         </p>
         <ul class="facts reveal">
-          <li>Windows only for now.</li>
+          <li>Windows and Linux.</li>
           <li>
             The application is not signed yet: on first launch, Windows SmartScreen shows
             a warning.
@@ -367,12 +385,6 @@
           </article>
 
           <article class="card reveal">
-            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3M7.5 15h9"/></g></svg>
-            <h3>Lab Caches support</h3>
-            <p>Take Lab Caches into account, so they appear on the map too.</p>
-          </article>
-
-          <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16v4M17 18h4"/></g></svg>
             <h3>New effects</h3>
             <p>Expand the palette of effects available for the animation.</p>
@@ -393,15 +405,17 @@
         <img class="download-icon reveal" src="assets/img/mygcflow-symbole.svg" alt="" width="88" height="88">
         <h2 class="reveal">Download MyGCFlow</h2>
         <p class="reveal" id="release-info">
-          Latest release: <strong class="js-version">0.0.3</strong>, for Windows.
+          Latest release: <strong class="js-version">0.0.5</strong>, for Windows and Linux.
         </p>
         <div class="actions center reveal">
           <a class="btn" id="dl-setup" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Installer <span class="btn-meta" id="dl-setup-meta">.exe</span></a>
           <a class="btn btn-ghost" id="dl-portable" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Portable version <span class="btn-meta" id="dl-portable-meta">.zip</span></a>
+          <a class="btn btn-ghost" id="dl-linux" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Linux version <span class="btn-meta" id="dl-linux-meta">.tar.gz</span></a>
         </div>
         <p class="fineprint reveal">
-          Nothing else to install: Python and ffmpeg are included.
-          On first launch, click &ldquo;More info&rdquo;, then
+          On Windows, nothing else to install: Python and ffmpeg are included.
+          On Linux, only Python is required; ffmpeg and the other tools are optional.
+          On Windows, on first launch, click &ldquo;More info&rdquo;, then
           &ldquo;Run anyway&rdquo;.
           The application lives in the notification area: that's where you reopen
           it or quit it.
