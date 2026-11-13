@@ -23,7 +23,8 @@ assets/js/main.js     vidéo d'accroche, galerie des thèmes, vidéo YouTube,
 .htaccess             renvoie 404 sur /.git* (le docroot est un clone git)
 assets/fonts/         Montserrat 600–800, réduite aux caractères latins (22 Ko)
 assets/img/           logos et favicons copiés depuis le kit
-assets/img/app/       captures de l'application (thèmes, interface, trajet, mode Évolution)
+assets/img/app/       captures de l'application (thèmes, interface, trajet, mode Évolution,
+                      panneaux Stats, zones, page Statistiques)
 assets/video/         vidéo d'accroche, exportée par l'application (WebM et MP4)
 outils/captures/      scripts qui ont produit les captures (voir plus bas)
 MyGCFlow-identite/    kit d'identité complet (source, non utilisé directement par la page)
@@ -55,7 +56,10 @@ dossier temporaire et gardent des chemins de cette machine (import de Playwright
    `MYGCFLOW_E2E_RUNTIME=<dossier>/runtime MYGCFLOW_E2E_PORT=5021 .venv/Scripts/python.exe tests/e2e/run_server.py`
 3. Avec Node 22 : `shot1.mjs` (import du GPX, interface), `shot2.mjs` (un thème par image,
    animation en pause), `shot3.mjs` (trajet, mode Évolution), `export.mjs` (vidéo exportée
-   par l'application).
+   par l'application), `shot4.mjs` (ajouts de la 0.0.9 : `import`, `ui` pour l'interface,
+   `zones`, `panels` pour les panneaux Stats, `statspage` ; réglages des zones par variables
+   d'environnement, les images du site ont été faites avec
+   `THEME=Épure PRESET=conquest SOLO=1 OPACITY=85`).
 4. Convertir en WebP (1040 px de large) et réencoder la vidéo avec ffmpeg.
 
 ## Déploiement (o2switch)

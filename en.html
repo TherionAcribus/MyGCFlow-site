@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MyGCFlow · your geocaches on an animated map</title>
-  <meta name="description" content="MyGCFlow replays your found geocaches and your Adventure Lab stages on a map, day after day, in the theme of your choice, and records the animation as a video. Free application for Windows and Linux, in alpha.">
+  <meta name="description" content="MyGCFlow replays your found geocaches, your Adventure Lab stages and your DNFs on a map, day after day, in the theme of your choice, records the animation as a video and sums it all up in charts. Free application for Windows and Linux, in alpha.">
   <meta name="theme-color" content="#082747">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="MyGCFlow">
-  <meta property="og:description" content="Your found geocaches and Adventure Lab stages, replayed on a map and recorded as a video.">
+  <meta property="og:description" content="Your found geocaches and Adventure Lab stages, replayed on a map, recorded as a video and turned into charts.">
   <!-- og:image demande une URL absolue : l'ajouter quand le domaine du site sera connu,
        avec assets/img/mygcflow-social-1280x640.png -->
   <link rel="alternate" hreflang="fr" href="index.html">
@@ -38,6 +38,7 @@
         <a href="#themes">Themes</a>
         <a href="#reglages">Settings</a>
         <a href="#evolution">Evolution</a>
+        <a href="#statistiques">Statistics</a>
         <a href="#video">Video</a>
         <a class="nav-github" href="https://github.com/TherionAcribus/MyGCFlow" aria-label="Source code on GitHub">
           <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -58,7 +59,8 @@
           <p class="lead">
             MyGCFlow reads your &ldquo;My&nbsp;Finds&rdquo; Pocket Query and brings your caches
             &mdash; and your Adventure Lab stages if you like &mdash; back day after day,
-            in the theme of your choice. You can then export the animation as a video.
+            in the theme of your choice. You can then export the animation as a video, and
+            review your finds in charts.
           </p>
           <div class="actions">
             <a class="btn" href="#telecharger">Download</a>
@@ -100,8 +102,9 @@
             <p>
               Export the &ldquo;My&nbsp;Finds&rdquo; Pocket Query from geocaching.com, then load the
               <code>.gpx</code> or <code>.zip</code> file, or drop it onto the page. Your Adventure
-              Lab stages can join them: a browser bookmark sends your history in one click.
-              Filter by type, size, difficulty, terrain, date range or country.
+              Lab stages and your logs (DNFs, owned caches) can join them: browser bookmarks
+              fetch them from geocaching.com. Filter by type, size, difficulty, terrain, date
+              range or country.
             </p>
           </li>
           <li class="step reveal">
@@ -109,7 +112,8 @@
             <h3>Pick a theme</h3>
             <p>
               Start from a bundled theme, then tune the basemap, the points, the appearance
-              flash, the title and the counter. Save the result under your own name.
+              flash, the title and the counter. Add statistics panels, your own pictures or
+              colored areas if you like. Save the result under your own name.
             </p>
           </li>
           <li class="step reveal">
@@ -117,7 +121,8 @@
             <h3>Preview, then export</h3>
             <p>
               Choose the period and the pace, add some music if you like,
-              check the result on screen, then export the video.
+              check the result on screen &mdash; the timeline bar takes the map to any day &mdash;
+              then export the video.
             </p>
           </li>
         </ol>
@@ -125,7 +130,8 @@
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg>
           <span>
             Your data stays on your computer. The application runs locally and opens in your
-            browser; only the basemap tiles come from the Internet. For Lab Caches, fetching
+            browser; only the basemap tiles come from the Internet. Your logs are read by a
+            bookmark in your own browser, then sent straight to the application. For Lab Caches, fetching
             the positions exchanges only Adventure identifiers with the public lab2gpx service
             &mdash; never an account identifier &mdash; and can be turned off in the options.
           </span>
@@ -149,10 +155,10 @@
         </figure>
 
         <ul class="points reveal">
-          <li><strong>Four tabs</strong> that follow the workflow: Data, Style, Animation, Settings.</li>
-          <li><strong>Playback always within reach</strong>: preview, export, pause or stop from the top bar.</li>
-          <li><strong>Four screen layouts</strong>, from a large map to a side panel, plus fullscreen.</li>
-          <li><strong>Light or dark interface</strong>, in French or English, with a built-in user guide.</li>
+          <li><strong>Four pages</strong>, from the header: My Geocaches, Evolution, My hides and Statistics.</li>
+          <li><strong>Tabs that follow the workflow</strong>: Data, Style, Animation &amp; video, then Stats, Images and Zones to dress up the map.</li>
+          <li><strong>Playback always within reach</strong>: preview, export, pause or stop from the top bar, and a timeline bar to jump to any day.</li>
+          <li><strong>Several screen layouts</strong> plus fullscreen, a light or dark interface, in French or English, with a built-in user guide.</li>
         </ul>
       </div>
     </section>
@@ -223,7 +229,7 @@
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h7M7 14h4"/></g></svg>
             <h3>Title and information</h3>
-            <p>A title and a panel with the cache count and the current date. Text, box, shadow and position are set by tabs, or in CSS if you prefer.</p>
+            <p>A title and a panel with the cache count and the current date, plus an optional legend. Text, box, shadow and position are set by tabs, or in CSS if you prefer.</p>
           </article>
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></g></svg>
@@ -243,12 +249,27 @@
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path d="M14 17h6M17 14v6"/></g></svg>
             <h3>Filters</h3>
-            <p>Keep only part of your caches: a type, a size, a difficulty, a terrain, a period, a country or a region.</p>
+            <p>Keep only part of your caches: a type, a size, a difficulty, a terrain, a period, a country or a region. Your combinations can be saved as presets.</p>
           </article>
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></g></svg>
             <h3>Lab Caches</h3>
             <p>Your Adventure Lab stages join the map like finds: one-click import through a browser bookmark or via files, positions fetched automatically, counter, trail and video included.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0112 0c0 5.4-6 11-6 11z"/><path d="M10 8l4 4M14 8l-4 4"/></g></svg>
+            <h3>DNFs and owned caches</h3>
+            <p>From your logs, your DNFs get their own layer beneath your finds and fade out once the cache is finally found. Your owned caches can show up too, from placement to archival.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></g></svg>
+            <h3>Pictures on the map</h3>
+            <p>Avatar, club logo, photo: up to four pictures pinned on the map and in the video, with shape, border, shadow, and an appearance on a date or at your 1,000th find.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M6 9v6M18 9v6"/><circle cx="12" cy="12" r="2.5"/></g></svg>
+            <h3>Timeline bar</h3>
+            <p>Under the map, click or drag to bring the map, the counter and the statistics to any day. The handles redefine the start and end dates. It never appears in the video.</p>
           </article>
         </div>
 
@@ -269,6 +290,48 @@
             <img src="assets/img/app/trajet.webp" width="1040" height="497" loading="lazy"
                  alt="Dark map where blue arcs connect groups of caches between France and neighboring countries.">
             <figcaption>Preview of the computed trail, &ldquo;Full journey&rdquo; preset. Fictional caches.</figcaption>
+          </figure>
+        </article>
+
+        <article class="split reveal">
+          <div class="split-text">
+            <h3>Statistics that fill up</h3>
+            <p>
+              Up to six panels count along with the animation and appear in the video:
+              difficulty/terrain matrix, Jasmer grid, 366-day calendar, bar charts, bar chart race,
+              donuts, progress curve, key figures&hellip;
+            </p>
+            <p>
+              Anchor them to a corner or place them with the mouse. Each one can count your finds,
+              your DNFs or your owned caches.
+            </p>
+          </div>
+          <figure class="split-figure">
+            <img src="assets/img/app/panneaux-stats.webp" width="1040" height="464" loading="lazy"
+                 alt="Dark map mid-animation, with three panels: a difficulty/terrain matrix, a progress curve and a bar chart of cache types.">
+            <figcaption>Three panels mid-animation, &ldquo;Cinématique&rdquo; theme. Fictional caches.</figcaption>
+          </figure>
+        </article>
+
+        <article class="split reveal">
+          <div class="split-text">
+            <h3>Your territories in color <span class="tag">New</span></h3>
+            <p>
+              Countries, regions or counties fill with color as your finds come in, on the map and
+              in the video. The color follows the number of finds or their density, the D/T
+              combinations covered or missing, the date of the first find, or the share of an
+              area's caches you have found. A comparison date shows what changed since then.
+            </p>
+            <p class="fineprint">
+              Départements, counties and equivalents for France, Germany, the United Kingdom,
+              Ireland and the United States; countries and regions elsewhere, or a grid of cells
+              anywhere.
+            </p>
+          </div>
+          <figure class="split-figure">
+            <img src="assets/img/app/zones.webp" width="1040" height="464" loading="lazy"
+                 alt="Light map of Western Europe where départements and regions are shaded in blue, darker where finds are numerous, with a five-class legend.">
+            <figcaption>&ldquo;My conquest&rdquo; preset, &ldquo;Zones only&rdquo;, &ldquo;Épure&rdquo; theme. Fictional caches.</figcaption>
           </figure>
         </article>
       </div>
@@ -298,8 +361,52 @@
         <ul class="points reveal">
           <li>Each cache <strong>appears on its placement date</strong> and <strong>disappears when archived</strong>; the counter tracks the number of active caches.</li>
           <li>The data comes from <strong>CSV exports</strong> of the area (GC code, coordinates, dates). Several files merge into a database, to be topped up later with a fresher export.</li>
-          <li>This mode has its <strong>own themes</strong>, designed for thousands of points, and a separate flash for disappearances.</li>
+          <li>This mode has its <strong>own themes</strong>, designed for thousands of points, a separate flash for disappearances, and its own statistics panels and colored areas.</li>
           <li>Corrected coordinates are never used, so as not to reveal mystery finals in a video.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Mes poses -->
+    <section id="poses" class="section section-alt">
+      <div class="wrap">
+        <h2 class="reveal">For cache owners: the life of your caches</h2>
+        <p class="section-lead reveal">
+          The &ldquo;My hides&rdquo; page animates your caches and the visits of other players,
+          from your Geocaching logs.
+        </p>
+
+        <ul class="points reveal">
+          <li>Each cache <strong>appears when placed</strong>, then come the visitors' finds, favorites and DNFs, maintenance and archival.</li>
+          <li>Each <strong>visitor's name</strong> floats for a moment next to the cache they just found, in one of eight styles &mdash; or shortened to initials, or hidden.</li>
+          <li>Point size can follow <strong>the cache's popularity</strong>, and a glow marks recent activity.</li>
+          <li><strong>Owner statistics</strong>: favorite ratio, loyal finders, delay before the first find, caches awaiting maintenance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Statistiques -->
+    <section id="statistiques" class="section">
+      <div class="wrap">
+        <h2 class="reveal">A statistics page <span class="tag">New</span></h2>
+        <p class="section-lead reveal">
+          Dashboards of charts, built on all your data, without a map.
+        </p>
+
+        <figure class="shot reveal">
+          <div class="shot-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <img src="assets/img/app/page-statistiques.webp" width="1440" height="900" loading="lazy"
+               alt="Screenshot of the MyGCFlow Statistics page: three key figures, a bar chart of finds per year, a progress curve and a comparison with the previous year.">
+          <figcaption>The starting dashboard, shown in French. Screenshot made with fictional caches.</figcaption>
+        </figure>
+
+        <ul class="points reveal">
+          <li><strong>A gallery of questions</strong> (&ldquo;Am I ahead of last year?&rdquo;, &ldquo;My best year&rdquo;&hellip;) or an editor to build your own: bars, curves, donuts, radars, calendars, area maps.</li>
+          <li><strong>All your sources</strong>: finds, DNFs, owned caches, logs received on your caches, Evolution datasets.</li>
+          <li><strong>Compare periods</strong>: this year against the previous one, to date, with an &ldquo;at this pace&rdquo; projection.</li>
+          <li><strong>Challenges and records</strong>: D/T matrix, 366-day calendar, Jasmer grid, longest streak, best day, goals with an estimated date.</li>
+          <li><strong>Back to the map</strong>: clicking a value opens the filtered map, and a chart can become a video panel.</li>
+          <li><strong>To show off</strong>: PNG or SVG export, an image of the whole dashboard, printing, fullscreen presentation mode, and a video of the dashboard set to music.</li>
         </ul>
       </div>
     </section>
@@ -340,7 +447,7 @@
         <h2 class="reveal">A project in alpha</h2>
         <p class="reveal">
           MyGCFlow works, but it is young: the current version is
-          <strong class="js-version">0.0.5</strong>. Expect bugs, settings that
+          <strong class="js-version">0.0.9</strong>. Expect bugs, settings that
           change from one version to the next, and an interface still being polished.
         </p>
         <ul class="facts reveal">
@@ -373,18 +480,6 @@
           </article>
 
           <article class="card reveal">
-            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></g></svg>
-            <h3>Custom images</h3>
-            <p>Display your own images during the animation.</p>
-          </article>
-
-          <article class="card reveal">
-            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></g></svg>
-            <h3>Matrices and real-time statistics</h3>
-            <p>Watch the difficulty/terrain matrix and other statistics fill up as the animation runs.</p>
-          </article>
-
-          <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16v4M17 18h4"/></g></svg>
             <h3>New effects</h3>
             <p>Expand the palette of effects available for the animation.</p>
@@ -405,7 +500,7 @@
         <img class="download-icon reveal" src="assets/img/mygcflow-symbole.svg" alt="" width="88" height="88">
         <h2 class="reveal">Download MyGCFlow</h2>
         <p class="reveal" id="release-info">
-          Latest release: <strong class="js-version">0.0.5</strong>, for Windows and Linux.
+          Latest release: <strong class="js-version">0.0.9</strong>, for Windows and Linux.
         </p>
         <div class="actions center reveal">
           <a class="btn" id="dl-setup" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Installer <span class="btn-meta" id="dl-setup-meta">.exe</span></a>

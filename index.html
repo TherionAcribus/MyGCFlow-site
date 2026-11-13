@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MyGCFlow · vos géocaches en carte animée</title>
-  <meta name="description" content="MyGCFlow rejoue vos géocaches trouvées et vos étapes Adventure Lab sur une carte, jour après jour, dans le thème de votre choix, et enregistre l'animation en vidéo. Application gratuite pour Windows et Linux, en version alpha.">
+  <meta name="description" content="MyGCFlow rejoue vos géocaches trouvées, vos étapes Adventure Lab et vos DNF sur une carte, jour après jour, dans le thème de votre choix, enregistre l'animation en vidéo et fait le bilan en graphiques. Application gratuite pour Windows et Linux, en version alpha.">
   <meta name="theme-color" content="#082747">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="MyGCFlow">
-  <meta property="og:description" content="Vos géocaches trouvées et vos étapes Adventure Lab, rejouées sur une carte et enregistrées en vidéo.">
+  <meta property="og:description" content="Vos géocaches trouvées et vos étapes Adventure Lab, rejouées sur une carte, enregistrées en vidéo et mises en graphiques.">
   <!-- og:image demande une URL absolue : l'ajouter quand le domaine du site sera connu,
        avec assets/img/mygcflow-social-1280x640.png -->
   <link rel="alternate" hreflang="en" href="en.html">
@@ -38,6 +38,7 @@
         <a href="#themes">Thèmes</a>
         <a href="#reglages">Réglages</a>
         <a href="#evolution">Évolution</a>
+        <a href="#statistiques">Statistiques</a>
         <a href="#video">Vidéo</a>
         <a class="nav-github" href="https://github.com/TherionAcribus/MyGCFlow" aria-label="Code source sur GitHub">
           <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -58,7 +59,8 @@
           <p class="lead">
             MyGCFlow lit votre Pocket Query «&nbsp;My&nbsp;Finds&nbsp;» et fait réapparaître vos caches
             — et vos étapes Adventure Lab si vous le souhaitez — jour après jour, dans le thème
-            de votre choix. Vous pouvez ensuite exporter l'animation en vidéo.
+            de votre choix. Vous pouvez ensuite exporter l'animation en vidéo, et faire le bilan
+            de vos trouvailles en graphiques.
           </p>
           <div class="actions">
             <a class="btn" href="#telecharger">Télécharger</a>
@@ -100,8 +102,9 @@
             <p>
               Exportez la Pocket Query «&nbsp;My&nbsp;Finds&nbsp;» depuis geocaching.com, puis chargez le
               fichier <code>.gpx</code> ou <code>.zip</code>, ou glissez-le sur la page. Vos étapes
-              Adventure Lab peuvent s'y joindre&nbsp;: un favori navigateur envoie votre historique
-              en un clic. Filtrez par type, taille, difficulté, terrain, période ou pays.
+              Adventure Lab et vos logs (DNF, caches posées) peuvent s'y joindre&nbsp;: des favoris
+              navigateur les récupèrent depuis geocaching.com. Filtrez par type, taille, difficulté,
+              terrain, période ou pays.
             </p>
           </li>
           <li class="step reveal">
@@ -109,7 +112,8 @@
             <h3>Choisissez un thème</h3>
             <p>
               Partez d'un thème fourni, puis réglez le fond de carte, les points, le flash
-              d'apparition, le titre et le compteur. Enregistrez le résultat sous votre propre nom.
+              d'apparition, le titre et le compteur. Ajoutez si vous le souhaitez des panneaux de
+              statistiques, vos images ou des zones colorées. Enregistrez le résultat sous votre propre nom.
             </p>
           </li>
           <li class="step reveal">
@@ -117,7 +121,8 @@
             <h3>Prévisualisez, puis exportez</h3>
             <p>
               Choisissez la période et le rythme, ajoutez une musique si vous le souhaitez,
-              vérifiez le rendu à l'écran, puis exportez la vidéo.
+              vérifiez le rendu à l'écran — la barre de chronologie amène la carte au jour voulu —,
+              puis exportez la vidéo.
             </p>
           </li>
         </ol>
@@ -125,7 +130,8 @@
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg>
           <span>
             Vos données restent sur votre ordinateur. L'application tourne en local et s'ouvre dans votre
-            navigateur&nbsp;; seules les tuiles du fond de carte viennent d'Internet. Pour les Lab Caches,
+            navigateur&nbsp;; seules les tuiles du fond de carte viennent d'Internet. Vos logs sont relus
+            par un favori dans votre propre navigateur, puis envoyés directement à l'application. Pour les Lab Caches,
             la récupération des positions n'échange avec le service public lab2gpx que des identifiants
             d'Adventures — jamais d'identifiant de compte — et se désactive dans les options.
           </span>
@@ -149,10 +155,10 @@
         </figure>
 
         <ul class="points reveal">
-          <li><strong>Quatre onglets</strong> qui suivent l'ordre du travail&nbsp;: Données, Style, Animation, Réglages.</li>
-          <li><strong>Lecture toujours à portée</strong>&nbsp;: prévisualiser, exporter, mettre en pause ou arrêter depuis la barre du haut.</li>
-          <li><strong>Quatre dispositions d'écran</strong>, de la grande carte au panneau latéral, plus le plein écran.</li>
-          <li><strong>Interface claire ou sombre</strong>, en français ou en anglais, avec un mode d'emploi intégré.</li>
+          <li><strong>Quatre pages</strong>, depuis l'en-tête&nbsp;: Mes Géocaches, Évolution, Mes poses et Statistiques.</li>
+          <li><strong>Des onglets dans l'ordre du travail</strong>&nbsp;: Données, Style, Animation &amp; vidéo, puis Stats, Images et Zones pour habiller la carte.</li>
+          <li><strong>Lecture toujours à portée</strong>&nbsp;: prévisualiser, exporter, mettre en pause ou arrêter depuis la barre du haut, et une barre de chronologie pour aller au jour voulu.</li>
+          <li><strong>Plusieurs dispositions d'écran</strong> et le plein écran, une interface claire ou sombre, en français ou en anglais, avec un mode d'emploi intégré.</li>
         </ul>
       </div>
     </section>
@@ -223,7 +229,7 @@
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h7M7 14h4"/></g></svg>
             <h3>Titre et informations</h3>
-            <p>Un titre et un cartouche avec le nombre de caches et la date en cours. Texte, boîte, ombre et position se règlent par onglets, ou en CSS si vous préférez.</p>
+            <p>Un titre et un cartouche avec le nombre de caches et la date en cours, plus une légende optionnelle. Texte, boîte, ombre et position se règlent par onglets, ou en CSS si vous préférez.</p>
           </article>
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></g></svg>
@@ -243,12 +249,27 @@
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path d="M14 17h6M17 14v6"/></g></svg>
             <h3>Filtres</h3>
-            <p>Ne gardez qu'une partie de vos caches&nbsp;: un type, une taille, une difficulté, un terrain, une période, un pays ou une région.</p>
+            <p>Ne gardez qu'une partie de vos caches&nbsp;: un type, une taille, une difficulté, un terrain, une période, un pays ou une région. Vos combinaisons s'enregistrent en préréglages.</p>
           </article>
           <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></g></svg>
             <h3>Lab Caches</h3>
             <p>Vos étapes Adventure Lab rejoignent la carte comme des trouvailles&nbsp;: import en un clic via un favori navigateur ou par fichiers, positions récupérées automatiquement, compteur, trajet et vidéo inclus.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0112 0c0 5.4-6 11-6 11z"/><path d="M10 8l4 4M14 8l-4 4"/></g></svg>
+            <h3>DNF et caches posées</h3>
+            <p>À partir de vos logs, vos DNF prennent leur propre couche sous vos trouvailles et s'effacent quand la cache finit par être trouvée. Vos caches posées peuvent apparaître aussi, de la pose à l'archivage.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></g></svg>
+            <h3>Images sur la carte</h3>
+            <p>Avatar, logo d'association, photo&nbsp;: jusqu'à quatre images épinglées sur la carte et dans la vidéo, avec forme, bordure, ombre, et une apparition à une date ou à la 1&nbsp;000ᵉ trouvaille.</p>
+          </article>
+          <article class="card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M6 9v6M18 9v6"/><circle cx="12" cy="12" r="2.5"/></g></svg>
+            <h3>Barre de chronologie</h3>
+            <p>Sous la carte, cliquez ou glissez pour amener la carte, le compteur et les statistiques au jour voulu. Les poignées redéfinissent le début et la fin. Elle n'apparaît jamais dans la vidéo.</p>
           </article>
         </div>
 
@@ -269,6 +290,48 @@
             <img src="assets/img/app/trajet.webp" width="1040" height="497" loading="lazy"
                  alt="Carte sombre où des arcs bleus relient des groupes de caches entre la France et les pays voisins.">
             <figcaption>Aperçu du trajet calculé, préréglage «&nbsp;Parcours complet&nbsp;». Caches fictives.</figcaption>
+          </figure>
+        </article>
+
+        <article class="split reveal">
+          <div class="split-text">
+            <h3>Des statistiques qui se remplissent</h3>
+            <p>
+              Jusqu'à six panneaux comptent au fil de l'animation et apparaissent dans la vidéo&nbsp;:
+              matrice D/T, grille Jasmer, calendrier des 366 jours, histogrammes, course de barres,
+              anneaux, courbe de progression, chiffres clés…
+            </p>
+            <p>
+              Ancrez-les dans un coin ou placez-les à la souris. Chacun peut compter vos trouvailles,
+              vos DNF ou vos caches posées.
+            </p>
+          </div>
+          <figure class="split-figure">
+            <img src="assets/img/app/panneaux-stats.webp" width="1040" height="464" loading="lazy"
+                 alt="Carte sombre en pleine animation, avec trois panneaux : une matrice difficulté/terrain, une courbe de progression et un histogramme des types de caches.">
+            <figcaption>Trois panneaux en pleine animation, thème «&nbsp;Cinématique&nbsp;». Caches fictives.</figcaption>
+          </figure>
+        </article>
+
+        <article class="split reveal">
+          <div class="split-text">
+            <h3>Vos territoires en couleurs <span class="tag">Nouveau</span></h3>
+            <p>
+              Les pays, régions ou départements se colorent au fil de vos trouvailles, sur la carte
+              et dans la vidéo. La couleur suit le nombre de trouvailles ou leur densité, les
+              combinaisons D/T couvertes ou manquantes, la date de la première trouvaille, ou la part
+              des caches d'une zone que vous avez trouvées. Une date de comparaison montre ce qui a
+              changé depuis.
+            </p>
+            <p class="fineprint">
+              Départements, comtés et équivalents pour la France, l'Allemagne, le Royaume-Uni, l'Irlande
+              et les États-Unis&nbsp;; pays et régions ailleurs, ou une grille de cases partout.
+            </p>
+          </div>
+          <figure class="split-figure">
+            <img src="assets/img/app/zones.webp" width="1040" height="464" loading="lazy"
+                 alt="Carte claire de l'Europe de l'Ouest où des départements et des régions sont teintés de bleu, plus foncé là où les trouvailles sont nombreuses, avec une légende en cinq classes.">
+            <figcaption>Préréglage «&nbsp;Ma conquête&nbsp;», zones seules, thème «&nbsp;Épure&nbsp;». Caches fictives.</figcaption>
           </figure>
         </article>
       </div>
@@ -298,8 +361,52 @@
         <ul class="points reveal">
           <li>Chaque cache <strong>apparaît à sa date de placement</strong> et <strong>disparaît à son archivage</strong>&nbsp;; le compteur suit le nombre de caches actives.</li>
           <li>Les données viennent d'<strong>exports CSV</strong> de la zone (code GC, coordonnées, dates). Plusieurs fichiers se fusionnent dans une base, à compléter plus tard avec un export plus récent.</li>
-          <li>Ce mode a ses <strong>propres thèmes</strong>, pensés pour des milliers de points, et un flash distinct pour les disparitions.</li>
+          <li>Ce mode a ses <strong>propres thèmes</strong>, pensés pour des milliers de points, un flash distinct pour les disparitions, et ses propres panneaux de statistiques et zones colorées.</li>
           <li>Les coordonnées corrigées ne sont jamais utilisées, pour ne pas révéler de finales de mystery dans une vidéo.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Mes poses -->
+    <section id="poses" class="section section-alt">
+      <div class="wrap">
+        <h2 class="reveal">Pour les poseurs&nbsp;: la vie de vos caches</h2>
+        <p class="section-lead reveal">
+          La page «&nbsp;Mes poses&nbsp;» anime vos caches et le passage des autres joueurs, à partir
+          de vos logs Geocaching.
+        </p>
+
+        <ul class="points reveal">
+          <li>Chaque cache <strong>apparaît à sa pose</strong>, puis s'animent les trouvailles, les favoris et les DNF des visiteurs, la maintenance et l'archivage.</li>
+          <li>Le <strong>pseudo de chaque visiteur</strong> flotte un instant près de la cache qu'il vient de trouver, dans l'un des huit styles proposés — ou réduit à ses initiales, ou masqué.</li>
+          <li>La taille des points peut suivre la <strong>popularité de la cache</strong>, et une lueur signale l'activité récente.</li>
+          <li>Des <strong>statistiques de poseur</strong>&nbsp;: part de favoris, trouveurs fidèles, délai avant la première trouvaille, caches en attente de maintenance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Statistiques -->
+    <section id="statistiques" class="section">
+      <div class="wrap">
+        <h2 class="reveal">Une page de statistiques <span class="tag">Nouveau</span></h2>
+        <p class="section-lead reveal">
+          Des tableaux de bord de graphiques, construits sur toutes vos données, sans carte.
+        </p>
+
+        <figure class="shot reveal">
+          <div class="shot-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <img src="assets/img/app/page-statistiques.webp" width="1440" height="900" loading="lazy"
+               alt="Capture de la page Statistiques de MyGCFlow : trois chiffres clés, un histogramme des trouvailles par année, une courbe de progression et une comparaison avec l'année précédente.">
+          <figcaption>Le tableau de bord proposé au départ. Capture réalisée avec des caches fictives.</figcaption>
+        </figure>
+
+        <ul class="points reveal">
+          <li><strong>Une galerie de questions</strong> («&nbsp;Suis-je en avance sur l'an dernier&nbsp;?&nbsp;», «&nbsp;Ma meilleure année&nbsp;»…) ou un éditeur pour composer les vôtres&nbsp;: barres, courbes, anneaux, radars, calendriers, cartes par zones.</li>
+          <li><strong>Toutes vos sources</strong>&nbsp;: trouvailles, DNF, caches posées, logs reçus sur vos caches, jeux du mode Évolution.</li>
+          <li><strong>Comparer des périodes</strong>&nbsp;: cette année contre la précédente, à date égale, avec une projection «&nbsp;à ce rythme&nbsp;».</li>
+          <li><strong>Défis et records</strong>&nbsp;: matrice D/T, calendrier des 366 jours, grille Jasmer, plus longue série, meilleure journée, objectifs avec date estimée.</li>
+          <li><strong>Retour à la carte</strong>&nbsp;: un clic sur une valeur ouvre la carte filtrée, et un graphique peut devenir un panneau de la vidéo.</li>
+          <li><strong>À montrer</strong>&nbsp;: export PNG ou SVG, image du tableau entier, impression, mode présentation plein écran, et vidéo du tableau en musique.</li>
         </ul>
       </div>
     </section>
@@ -340,7 +447,7 @@
         <h2 class="reveal">Un projet en version alpha</h2>
         <p class="reveal">
           MyGCFlow fonctionne, mais il est jeune&nbsp;: la version actuelle est la
-          <strong class="js-version">0.0.5</strong>. Attendez-vous à des bugs, à des réglages qui
+          <strong class="js-version">0.0.9</strong>. Attendez-vous à des bugs, à des réglages qui
           changent d'une version à l'autre et à une interface encore en rodage.
         </p>
         <ul class="facts reveal">
@@ -373,18 +480,6 @@
           </article>
 
           <article class="card reveal">
-            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></g></svg>
-            <h3>Images personnalisées</h3>
-            <p>Afficher vos propres images pendant l'animation.</p>
-          </article>
-
-          <article class="card reveal">
-            <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></g></svg>
-            <h3>Matrices et statistiques en temps réel</h3>
-            <p>Voir la matrice difficulté/terrain et d'autres statistiques se remplir au fil de l'animation.</p>
-          </article>
-
-          <article class="card reveal">
             <svg class="card-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16v4M17 18h4"/></g></svg>
             <h3>Nouveaux effets</h3>
             <p>Enrichir la palette d'effets disponibles pour l'animation.</p>
@@ -405,7 +500,7 @@
         <img class="download-icon reveal" src="assets/img/mygcflow-symbole.svg" alt="" width="88" height="88">
         <h2 class="reveal">Télécharger MyGCFlow</h2>
         <p class="reveal" id="release-info">
-          Dernière version&nbsp;: <strong class="js-version">0.0.5</strong>, pour Windows et Linux.
+          Dernière version&nbsp;: <strong class="js-version">0.0.9</strong>, pour Windows et Linux.
         </p>
         <div class="actions center reveal">
           <a class="btn" id="dl-setup" href="https://github.com/TherionAcribus/MyGCFlow/releases/latest">Installeur <span class="btn-meta" id="dl-setup-meta">.exe</span></a>
